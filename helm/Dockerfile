@@ -9,7 +9,7 @@ COPY helm.bash /builder/helm.bash
 RUN chmod +x /builder/helm.bash && \
   mkdir -p /builder/helm && \
   apt-get update && \
-  apt-get install -y --no-install-recommends curl && \
+  apt-get install -y --no-install-recommends curl jq && \
   curl -SL https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz -o helm.tar.gz && \
   tar zxvf helm.tar.gz --strip-components=1 -C /builder/helm linux-amd64 && \
   rm helm.tar.gz && \
